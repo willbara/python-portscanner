@@ -1,6 +1,6 @@
 # Port Scanner with Banner Grabbing
 
-A **Python-based Port Scanner** with a basic **Tkinter GUI** that can scan a single IP address or rang, to detect open ports, and grab banners from services. The scanner includes features like multithreading for speed, service detection, custom port ranges, and a progress bar that updates in real-time.
+A **Python-based Port Scanner** with a basic **Tkinter GUI** that can scan a single IP address or range, for open ports, and grab respective banners. Uses multithreading for speed, detection, custom port ranges, and a progress bar that updates in real-time. Experimenting with dark mode too lol.
 
 ---
 
@@ -72,7 +72,7 @@ Scan complete.
 
 ## Contribution
 
-Feel free to fork this repository and submit pull requests for improvements,
+Feel free to fork this repository and submit pull requests for improvements.
 
 
 ## License
