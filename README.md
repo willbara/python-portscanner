@@ -86,6 +86,5 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - Inspired by **Nmap** and other network scanning tools.
 - [Python](https://www.python.org/)
 - [tkinter Documentation](https://docs.python.org/3/library/tkinter.html)
-- [Cryptography Library](https://cryptography.io/)
 
 ---
