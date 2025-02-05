@@ -23,7 +23,7 @@ A **Python-based Port Scanner** with a basic **Tkinter GUI** that can scan a sin
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/your-username/port-scanner.git
+    git clone https://github.com/willbara/python-portscanner.git
     cd port-scanner
     ```
 
