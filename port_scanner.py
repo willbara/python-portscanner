@@ -1,9 +1,11 @@
 # Remember to merge cli stack in cpp later
 # importing socket library to communicate at low level
 import socket
+# adding multithreading to speed up scanning process
+import threading
 
 # using scan_port function to check single point
-def scan_port(ip, port): # scan_port takes two parameters here
+def scan_port(ip, port, open_ports): # scan_port takes two parameters here
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: 
             # socket.socket() creates a new socket obkect
@@ -14,26 +16,33 @@ def scan_port(ip, port): # scan_port takes two parameters here
             # connect_ex attmepts connection, if it succeeds, return 0
             result = s.connect_ex((ip, port))
             if result == 0:
-                return True
+                open_ports.append(port) # actually add the ports to list
     except Exception as e:
         print(f"Error scanning port {port}: {e}")
     return False
 
 def scan_ports(ip, ports):
-    # creating a list to store open ports
+    # creating empty lists to store ports and threads for processing
     open_ports = []
-    # loop through each port
+    threads = []
+
     for port in ports:
-        # For each port, scan_port() is called to check if its open
-        if scan_port(ip, port):
-            # if port is open, its added to open_ports list
-            open_ports.append(port)
-    # returns list of open ports
+        # threading.Thread() creates a new thread
+        # target=scan_port is what function the thread will run
+        # target= and args= tells the function what to do/look for
+        thread = threading.Thread(target=scan_port, args=(ip, port, open_ports))
+        # add thread to our list
+        threads.append(thread)
+        thread.start()
+    # wait for threads to finish
+    for thread in threads:
+        thread.join()
+    
     return open_ports
 
 if __name__ == "__main__":
     target_ip = input("Enter the IP address to scan: ")
-    ports_to_scan = range(1, 1025)
+    ports_to_scan = range(1, 1024)
     # calls the scan_ports() function to scan range of inputted IP
     open_ports = scan_ports(target_ip, ports_to_scan)
 
