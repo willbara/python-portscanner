@@ -5,7 +5,7 @@ A **Python-based Port Scanner** with a basic **Tkinter GUI** that can scan a sin
 ---
 
 ## Screenshot
-![Port Scanner GUI](path_to_screenshot.png)
+![Port Scanner GUI](screenshot.png)
 
 ## Features
 
